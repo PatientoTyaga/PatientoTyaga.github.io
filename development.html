@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Development Process</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/patiento710/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/PatientoTyaga" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+                                
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Development Process</h1>
+									</header>
+
+									<span class="image main"><img src="images/appDevProcess.jpg" alt="" /></span>
+                                    <p>The idea for the Workout Planner arose from my struggles with organizing my workouts. Frequently finding myself in the gym, I often forgot the exercises I had planned. Resorting to using notes helped me remember the exercises, but it didn't offer an optimal user experience for organizing and tracking workouts. This inspired me to create the Workout Planner. Throughout the app's development, I encountered several challenges, which I will discuss below.</p>
+
+
+									<hr class="major" />
+
+									<h2>Database Setup</h2>
+
+                                    <p>Setting up the database class was quite straightforward. I used SQLiteOpenHelper, which facilitated the creation and opening of a SQLite database. Since I had already worked with this before while developing the Course Scheduler application, it didn't pose much of a challenge. Nonetheless, I encountered some small obstacles, such as forgetting to update the database schema when making changes to the DatabaseManager class. It was a good lesson learned</p>                                    
+
+									<hr class="major" />
+
+									<h2>Challenges Encountered</h2>
+                                    <p>The most challenging part of the development was related to tab deletion. I had successfully set up the tabs, and deletion was functioning as expected. However, a problem arose when a tab was deleted: if another category remained, the app would automatically switch to that tab, which was the expected behavior. However, the exercises under that tab would disappear. After conducting online research, it was suggested to start a new activity to resolve the issue. While starting a new activity did solve the problem, it wasn't the ideal solution because it introduced a 1 or 2 second delay before the exercises reappeared.</p>
+                                    <p>To address this issue, I decided to debug and trace the flow of my classes. I discovered that after deletion and requesting the tab to reload the information, the fragment containing the deleted category was being retained. What I wanted was for the app to use the remaining fragments and not retain the fragment with the deleted category. That fragment was supposed to be completely destroyed.</p>
+                                    <p>After identifying the cause, I opted to utilize FragmentStatePagerAdapter, which permits all fragments to be destroyed once they are no longer visible to the user. This aligned with the behavior I sought, as when a category is deleted, recalling the tabPager adapter class would set up the remaining visible fragments while excluding the deleted one. This approach also accommodated my intention to allow for a large number of fragments in the app, enhancing its memory efficiency. Upon implementation, this solution successfully resolved the issue. It took me a day and a half to fully comprehend this aspect, as I initially struggled to grasp how fragments functioned. Nevertheless, this challenge ultimately provided me with a robust understanding of managing fragment states within the app.</p>
+
+									<hr class="major" />
+
+									
+									<header class="major">
+										<h2>Changes Made</h2>
+									</header>
+									<div class="posts">
+										<article>
+											<a class="image"><img src="images/oldDesign.jpg" alt="" /></a>
+											<h3>Initial Categories Design</h3>
+                                            <p>During the initial phases of the development process, I utilized basic, simple images, as depicted in the image above. Subsequently, I sought feedback from a select group of friends and family regarding the app's appearance. The majority suggested using higher-quality images.</p>
+                                            
+										</article>
+										<article>
+											<a class="image"><img src="images/afterDesign.jpg" alt="" /></a>
+											<h3>Final Categories Design</h3>
+                                            <p>Taking this advice into consideration, I contemplated how, as a fitness enthusiast, I would prefer the app to visually showcase body exercises in a more engaging manner. Additionally, I aimed for the images to convey the targeted body part without the user needing to read the category title. This led me to implement changes, resulting in the final product showcased above.</p>
+										</article>
+										
+									</div>
+								</section>
+
+                                <hr class="major" />
+
+									<h2>Areas Of Improvement</h2>
+                                    <p>While the app functions as intended, there's room for improvement, particularly in optimizing the setup of the SQL database and classes to adhere more closely to the SOLID principles of software design. By aligning the code with these principles, it would reduce code smell and enhance maintainability. Additionally, incorporating testing code is essential for ensuring the app's reliability and robustness. Although I have included dependencies for Mockito and Robolectric, actual test code implementation is yet to be integrated. Moving forward, integrating these testing frameworks and developing comprehensive test suites will be a priority to ensure the app's quality and stability.</p>
+									<hr class="major" />
+
+                                    <h2>Areas For Growth</h2>
+                                    <p>The app has room for additional features. One such feature that could be added is a pie chart summary of the completed exercises. This would give users an idea of how to balance their workouts to ensure all body parts receive equal attention.</p>
+                                    <p>Another option would be to include an option that allows users to access demonstrations of the listed exercises. This could be achieved through simple GIFs or links to videos illustrating the exercises.</p>
+                                    <p>Furthermore, a share option could be added to enable users to share their results or workouts with friends or on their social media platforms.</p>
+                                    <hr class="major" />
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="wplannerDetails.html">Workout Planner Page</a></li>
+									</ul>
+								</nav>
+
+						
+							<!-- Footer -->
+								<footer id="footer">
+                                    <p> Workout Planner </p>
+                                </footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

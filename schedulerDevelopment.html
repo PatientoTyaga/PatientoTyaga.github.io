@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Development Process</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/patiento710/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/PatientoTyaga" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+                                
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Development Process</h1>
+									</header>
+
+									<span class="image main"><img src="images/schedulerA.png" alt="" /></span>
+                                    <p>My responsibilities in the development of Course Scheduler included setting up the database, organizing the classes responsible for interacting with the database, and establishing the authentication process. Additionally, I was tasked with implementing features for deleting and updating entries, as well as managing the addition and removal of courses from the schedule. It was my responsibility to ensure that the backend of the app operated smoothly, adhering to SOLID principles for effective software design.</p>
+
+									<hr class="major" />
+
+									<h2>Database Setup</h2>
+                                        <p>Setting up the database posed quite a challenge, considering it was my first experience incorporating a database into an application. With a project velocity to adhere to, I had approximately 4-5 days allocated for this task. However, I encountered difficulties during the setup process, prompting extensive research. I had set it up but could only have one table populate. Balancing this task with four other courses and a part-time job added to the complexity. Despite these challenges, I maintained a meticulously organized schedule and managed my time with precision. Through diligent research, I acquired the necessary libraries and successfully completed the database setup. I had to ensure that the SQL statements were correct and ensured that the data being inserted into the tables satisfied the foreign key constraints.</p>
+									<hr class="major" />
+
+									<h2>Challenges Encountered</h2>
+
+                                        <p>Initially, the backend development was intended to be a collaborative effort involving two team members. However, due to unforeseen circumstances, one member experienced a personal loss and was unable to contribute as planned. In response, we had to reassign tasks, prompting me to take on the backend development and authentication roles. This adjustment allowed the other team member to focus on UI development instead. Volunteering for the backend responsibilities was a natural choice for me, as I had already established the database and related interfaces and classes. With familiarity in the workflow, I anticipated a smoother transition. Moreover, I personally enjoy problem-solving coding, making backend development more appealing to me than UI design, which involves more visual and layout considerations.</p>
+									<hr class="major" />
+
+                                    <h2>Design Architecture</h2>
+                                    <p>This app has 3-tier architecture: Presentation Layers, Logic Layers, and data Layers (Persistence). </p>
+                                    <ul>
+                                        <li>For Presentation Layers: MainActivity.java: the main page supports activities in which student can check self-information, logout, update Student self-information. LoginActivity.java: work on the first page in the App. It supports activities: register Student, log in. CourseActivity.java: It supports activities: handle the Add course and show courses information on the Course Page. ScheduleActivity.java: supports activities: list the student’s Schedule and prove operations(go add courses, delete courses, delete current Schedule).</li>
+                                        <li>For Logic Layers: The three major java files AccessCourse, AccessStudent, and AccessSchedule access Data Layers for each type of object. They prove the method on how to contain logic, when to load data from Data Layers and how to input data into each object persistence in Data Layers. The Validator.java makes sure that the student entries such as name and student ids are being added correctly, making sure that invalid characters aren’t being added. The ValidatorCourse takes care of validation for the course where it checks for time conflict in courses and making sure a course isn’t added twice.</li>
+                                        <li>For Data Layers: There are three interfaces to isolation the three different objects persistence to implements methods to access SQLite Databases. In SQLite Databases, we have “Course” “Schedule” “Student” tables to help store data and use tablenamePersistence to work on them. We use an interface “IDatabase” as the superclass to three interfaces. Then we don’t have interfaces that have methods that aren’t needed.</li>
+                                        <li>For Object Layers: It has Course, Student, Schedule three objects. And Schedule is Composition by Course and Student.</li>
+                                        <li>For Sevices Layers: Services.java class creates the objects Persistence before when the app starts.</li>
+                                    </ul>
+                                </section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="schedulerDetails.html">Course Scheduler Page</a></li>
+									</ul>
+								</nav>
+
+						
+							<!-- Footer -->
+								<footer id="footer">
+                                    <p> Workout Planner </p>
+                                </footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
