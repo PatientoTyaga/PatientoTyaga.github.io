@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>VideoNoting Architecture</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/patiento710/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/PatientoTyaga" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+                                
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Architecture Overview</h1>
+									</header>
+
+									<span class="image main"><img src="images/videoNotingArchitecture.png" alt="" /></span>
+
+									<hr class="major" />
+
+									<h2>Overview</h2>
+
+									<h3>User Registration and Authentication</h3>
+									<ul>
+										<li>
+											<p>
+												<b>Registration:</b> The client collects user information (e.g., username, password) 
+												and sends it to the server via an HTTP POST request. 
+												The server processes this data, creates a new user record in the database, 
+												and returns a success response to the client.
+											</p>
+										</li>
+
+										<li>
+											<p>
+												<b>Login:</b> The client sends user credentials to the server via an HTTP POST request. 
+												The server queries the database to verify the credentials. 
+												If authentication is successful, the server generates a JSON Web Token (JWT) 
+												and sends it back to the client for session management.
+											</p>
+										</li>
+									</ul>
+
+									<h3>Video Search</h3>
+									<ul>
+										<li>
+											<p>
+												<b>Search Query:</b> Search Query: The client sends a search query to the server. 
+												The server forwards this query to the YouTube API, 
+												receives the results, filters the unwanted data, and sends the relevant results back to the client.
+											</p>
+										</li>
+									</ul>
+
+									<h3>Note Management</h3>
+									<ul>
+										<li>
+											<p>
+												<b>Editing/Saving Notes:</b> The client sends note data (e.g., content, title) 
+												to the server via an HTTP POST or PUT request. 
+												The server updates the database with the new or modified note data 
+												and sends a confirmation response back to the client.
+											</p>
+										</li>
+									</ul>
+
+									<h3>Profile Picture Management</h3>
+									<ul>
+										<li>
+											<p>
+												<b>Upload/Delete Profile Picture:</b> The client sends a request to the server to 
+												upload or delete a profile picture. The server processes this request by interacting 
+												with Cloudinary to store or delete the image. Upon completion, Cloudinary sends a 
+												response to the server, which then informs the client and updates the UI accordingly.
+											</p>
+										</li>
+									</ul>
+
+									<h3>User Feedback</h3>
+									<ul>
+										<li>
+											<p>
+												<b>Sending Feedback:</b> The client sends feedback messages to the server via an HTTP POST request. 
+												The server forwards this message to EmailJs. EmailJs then sends the message to the designated recipient 
+												and responds back to the server with a success status. The server relays this success response to the 
+												client, confirming that the feedback was sent successfully.
+											</p>
+										</li>
+
+									</ul>
+
+									<hr class="major" />
+
+									<h2>Detailed Description</h2>
+
+									<h3>User Registration and Authentication</h3>
+									<ul>
+										<li>
+											<h3>Client-Side:</h3>
+											<ul>
+												<li>The user fills out the registration form.</li>
+												<li>The form data is sent to the server using an HTTP POST request to the registration endpoint.</li>
+												<li>On login, the user submits their credentials, which are sent to the server using an HTTP POST request to the login endpoint.</li>
+											</ul>
+										</li>
+										<li>
+											<h3>Server-Side:</h3>
+											<ul>
+												<li>Receives the registration data, validates it, and stores it in the database.</li>
+												<li>On login, the server queries the database to authenticate the user.</li>
+												<li>If authentication is successful, a JWT is generated and sent to the client for session management.</li>
+											</ul>
+											
+										</li>
+
+									</ul>
+									<h3>Video Search</h3>
+									<ul>
+										<li>
+											<h3>Client-Side:</h3>
+											<ul>
+												<li>The user enters a search query for a video.</li>
+												<li>The query is sent to the server using an HTTP GET or POST request.</li>
+											</ul>
+										</li>
+										<li>
+											<h3>Server-Side:</h3>
+											<ul>
+												<li>Receives the search query and sends a request to the YouTube API.</li>
+												<li>Filters the response to extract relevant video data.</li>
+												<li>Sends the filtered results back to the client.</li>
+											</ul>
+											
+										</li>
+
+									</ul>
+
+									<h3>Note Management</h3>
+									<ul>
+										<li>
+											<h3>Client-Side:</h3>
+											<ul>
+												<li>The user edits or creates a note and submits it.</li>
+												<li>The note data is sent to the server using an HTTP POST or PUT request.</li>
+											</ul>
+										</li>
+										<li>
+											<h3>Server-Side:</h3>
+											<ul>
+												<li>Receives the note data and updates the database accordingly.</li>
+												<li>Sends a confirmation response back to the client.</li>
+											</ul>
+											
+										</li>
+
+									</ul>
+
+									<h3>Profile Picture Management</h3>
+									<ul>
+										<li>
+											<h3>Client-Side:</h3>
+											<ul>
+												<li>The user uploads or deletes their profile picture.</li>
+												<li>The request is sent to the server.</li>
+											</ul>
+										</li>
+										<li>
+											<h3>Server-Side:</h3>
+											<ul>
+												<li>Processes the request and interacts with Cloudinary to upload or delete the image.</li>
+												<li>Cloudinary responds to the server with the outcome.</li>
+												<li>The server updates the client UI accordingly.</li>
+											</ul>
+											
+										</li>
+
+									</ul>
+									<h3>User Feedback</h3>
+									<ul>
+										<li>
+											<h3>Client-Side:</h3>
+											<ul>
+												<li>The user submits a feedback form.</li>
+												<li>The feedback data is sent to the server using an HTTP POST request.
+												</li>
+											</ul>
+										</li>
+										<li>
+											<h3>Server-Side:</h3>
+											<ul>
+												<li>Forwards the feedback message to EmailJs.</li>
+												<li>EmailJs sends the message and responds back to the server with a success status.</li>
+												<li>The server informs the client that the message was sent successfully.</li>
+											</ul>
+											
+										</li>
+
+									</ul>
+                                </section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+									</ul>
+								</nav>
+
+						
+							<!-- Footer -->
+								<footer id="footer">
+                                    <p> VideoNoting </p>
+                                </footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

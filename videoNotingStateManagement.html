@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>VideoNoting State Management</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/patiento710/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/PatientoTyaga" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+                                
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>State Management</h1>
+									</header>
+									
+									<p>
+										In the web application, there are four context providers used for managing the state across different components. 
+										These context providers ensure that certain states are preserved and accessible
+										throughout the application, enhancing the user experience and maintaining consistency.
+									</p>
+									
+									<h3>AuthConext</h3>
+									<ul>
+										<li>
+											<b>Description:</b> Manages the authentication state of the user.
+										</li>
+									</ul>
+										
+									<b>Functionality:</b>
+									<ul>
+										<li>Sets and preserves the authentication state (authState) once the user logs in.</li>
+										<li>Ensures that the authentication state remains active until the user logs out.</li>
+										<li>Provides methods to log in, log out, and check the current authentication status.</li>
+									</ul>
+											
+									<b>Usage:</b>
+									<ul>
+										<li>Components that need to check if a user is authenticated or access user-specific data will consume this context.</li>
+									</ul>
+
+									<h3>DarkMode Context</h3>
+									<ul>
+										<li>
+											<b>Description:</b> Manages the dark mode state of the application.
+										</li>
+									</ul>
+
+									<b>Functionality:</b>
+									<ul>
+										<li>Preserves the dark mode state (isDarkMode) across the application while the user is logged in.</li>
+										<li>Allows users to toggle between dark mode and light mode.</li>
+									</ul>
+
+									<b>Usage:</b>
+									<ul>
+										<li>Components that need to apply dark mode styling or allow users to switch themes will consume this context.</li>
+									</ul>
+
+									<h3>ProfilePhoto Context</h3>
+									<b>Description:</b> 
+									<ul>
+										<li>
+											Manages the user's profile photo state.
+										</li>
+									</ul>
+
+									<b>Functionality:</b>
+									<ul>
+										<li>Ensures the profile photo is preserved and accessible as long as the user is logged in.</li>
+										<li>Allows updating of the profile photo.</li>
+									</ul>
+											
+									<b>Usage:</b>
+									<ul>
+										<li>Components that display the user's profile photo or allow the user to update their photo will consume this context.</li>
+									</ul>
+
+									<h3>Search Context</h3>
+									<b>Description:</b> 
+									<ul>
+										<li>
+											Manages the state of the user's search queries.
+										</li>
+									</ul>
+
+									<b>Functionality:</b>
+									<ul>
+										<li>Preserves the search query (searchQuery) made by the user.</li>
+										<li>Updates the search query when the user makes a new search.</li>
+										<li>Clears the search query when the user logs out or changes it upon a new search.</li>
+									</ul>
+											
+									<b>Usage:</b>
+									<ul>
+										<li>Components that perform searches or display search results will consume this context.</li>
+									</ul>
+
+									<hr class="major" />
+
+									<h2>Additional Information</h2>
+
+									<h3>Context Providers Implementation</h3>
+									<ul>
+										<li>
+											Each context provider is implemented using React's Context API.
+										<li>
+											The context providers are typically wrapped around the root component of the 
+											application or specific component trees to ensure the state is globally accessible.
+										</li>
+									</ul>
+
+									<h3>Benefits</h3>
+									<ul>
+										<li>
+											<b>Centralized State Management:</b> 
+											Centralizes the management of critical states, making the application easier to maintain and debug.
+										</li>
+
+										<li>
+											<b>Consistent User Experience:</b> 
+											Ensures a consistent user experience by preserving states like authentication, theme preference, 
+											profile photo, and search queries across different sessions and components.
+										</li>
+
+										<li>
+											<b>Seamless Integration</b> 
+											Integrates seamlessly with React components, allowing for easy state sharing and updates.
+										</li>
+									</ul>
+					
+									<br>
+									<p>
+										By utilizing these context providers, the web application maintains a cohesive and user-friendly environment, 
+										ensuring that user preferences and states are preserved and managed efficiently.
+									</p>
+
+                                </section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+									</ul>
+								</nav>
+
+						
+							<!-- Footer -->
+								<footer id="footer">
+                                    <p> VideoNoting </p>
+                                </footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

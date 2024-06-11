@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>VideoNoting API Integration</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/patiento710/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/PatientoTyaga" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+                                
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>API Integration</h1>
+									</header>
+									
+									<h2>List of External APIs Used:</h2>
+
+									<h3>YouTube Data API v3</h3>
+									<ul>
+										<li>
+											<b>Endpoint:</b>
+											https://www.googleapis.com/youtube/v3/search
+										</li>
+										<li>
+											<b>Purpose:</b>
+											Fetches search results from YouTube based on user queries. 
+										</li>
+									</ul>
+									
+
+									<br>
+									<h4>Handling the Requests</h4>
+									<h4>Validation:</h4>
+									<ul>
+										<li>
+											The route first checks if searchQueries is a valid array and not empty.
+										</li>
+										<li>
+											If the validation fails, it responds with a 400 status and an error message.
+										</li>
+									</ul>
+
+									<br>
+									<h4>Processing the Queries:</h4>
+
+									<ul>
+										<li>Filters out any empty queries.</li>
+										<li>For each valid query, sends a GET request to the YouTube Data API endpoint.</li>
+										<li>Uses Axios for making the HTTP requests.</li>
+										<li>Handles errors for each request individually to ensure that one failed request doesn't affect the others.</li>
+									</ul>
+										
+
+									<br>
+									<h4>Collecting the Responses:</h4>
+
+									<ul>
+										<li>Uses Promise.all to wait for all the requests to complete.</li>
+										<li>Groups the results by the user who made the query.</li>
+										<li>Returns the aggregated results in the response.</li>
+									</ul>
+
+									<br>
+									<h4>Error Handling:</h4>
+
+									<ul>
+										<li>Logs errors encountered during API requests.</li>
+										<li>Returns an empty array of videos for users whose requests failed.</li>
+										<li>Responds with a 500 status and an error message if there is a server-side issue.</li>
+									</ul>
+									
+									<hr class="major" />
+									
+									<h3>Cloudinary API</h3>
+									<b>Endpoints:</b>
+									<ul>
+										<li>
+											cloudinary.uploader.upload_stream: Used to upload images to Cloudinary.
+										</li>
+										<li>
+											cloudinary.url: Generates a signed URL for accessing the uploaded image.
+										</li>
+										<li>
+											cloudinary.uploader.destroy: Deletes images from Cloudinary.
+										</li>
+									</ul>
+
+									<b>Purpose:</b>
+									<ul>
+										<li>
+											Manages image uploads, retrievals, and deletions in Cloudinary for user profile pictures.
+										</li>
+									</ul>
+										
+									
+
+                                </section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+									</ul>
+								</nav>
+
+						
+							<!-- Footer -->
+								<footer id="footer">
+                                    <p> VideoNoting </p>
+                                </footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

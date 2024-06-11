@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>VideoNoting</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/patiento710/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/PatientoTyaga" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>VideoNoting</h1>
+									</header>
+
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/OYVAxFBNl7E" allowfullscreen></iframe>
+									<br>
+									<br>
+									<p>VideoNoting is a user-friendly web application designed to enhance note-taking during lectures, tutorials, and other video content. With a focus on simplicity, VideoNoting allows users to create an account, search for videos, and take notes all on a single page, eliminating the need for multiple applications.
+										Additionally, VideoNoting caters to those who prefer to watch educational content on YouTube without being distracted by unrelated videos. The platform ensures that users see only the videos they search for, maintaining their focus and productivity.
+										While VideoNoting is accessible on all devices, using a PC is recommended for the best user experience.</p>
+
+									<hr class="major" />
+
+									<h2>Technologies Used</h2>
+
+									<h4>Programming Languages</h4>
+									<ul>
+										<li>JavaScript</li>
+										<li>HTML</li>
+										<li>CSS</li>
+									</ul>
+                            
+									<h4>Frameworks and Libraries</h4>
+									<h5>Front-end:</h5>
+									<ul>
+										<li>React</li>
+										<li>Router</li>
+										<li>Formik</li>
+										<li>Axios</li>
+										<li>React Router-Dom</li>
+										<li>REact-PDF</li>
+										<li>EmailJS</li>
+										<li>Yup</li>
+									</ul>
+									<br>
+									<h5>Back-end</h5>
+									<ul>
+										<li>Axios</li>
+										<li>Express</li>
+										<li>Cors</li>
+										<li>Cloudinary</li>
+										<li>Bcrypt</li>
+										<li>JSON Web Token</li>
+										<li>Streamifier</li>
+										<li>Multer</li>
+									</ul>
+
+									<hr class="major" />
+
+									<h2>Key Features</h2>
+									
+									<h4>Video Search:</h4>
+									<p>
+										Users can search for videos using the navigation bar, which will provide a selection of videos related to their search.
+									</p>
+
+									<h4>Note Taking:</h4>
+									<p>
+										Users can take notes while watching a video without needing to open another application, keeping everything on the same page.
+									</p>
+
+									<h4>Saving Notes:</h4>
+									<p>
+										Users can save their completed notes to folders, which they can revisit at any time.
+									</p>
+
+									<h4>Editing Notes:</h4>
+									<p>
+										Users can edit any saved notes, allowing them to add or remove content as needed.
+									</p>
+
+									<h4>Downloading Notes:</h4>
+									<p>
+										Users can download their saved notes as PDFs, making it easy to share notes and keep a local copy on their devices.
+									</p>
+
+									<h4>Deletion:</h4>
+									<p>
+										Users can delete their saved notes and folders when they are no longer needed.
+									</p>
+									<h4>Video Search:</h4>
+									<p>
+										Users can search for videos using the navigation bar, which will provide a selection of videos related to their search.
+									</p>
+
+									<h4>Profile Picture:</h4>
+									<p>
+										Users can upload and delete a profile picture to customize their profile's appearance.
+									</p>
+
+									<h4>Updating Username and Password:</h4>
+									<p>
+										Users have the option to update their username and password at any time.
+									</p>
+
+									<h4>Account Deletion:</h4>
+									<p>
+										Users can delete their account, which will erase all saved data.
+									</p>
+
+									<hr class="major" />
+
+									<h2>Authentication Flow</h2>
+									<h3>Registration</h3>
+									<ol>
+										<li>
+											<b>User Input:</b>
+											During registration, the user is prompted to enter their preferred username, password, 
+											and a search query to set the type of videos they would like to see upon login.
+										</li>
+
+										<li>
+											<b>Username Check:</b>
+											Once the user clicks on register, the server checks to ensure the username does not already exist.
+										</li>
+
+										<li>
+											<b>User Registration:</b>
+											If the username is unique, the server registers the user and saves their information into the database.
+										</li>
+
+										<li>
+											<b>Password Hashing:</b>
+											The password is hashed using Bcrypt before being stored in the database for enhanced security.
+										</li>
+									</ol>
+
+									<h3>Login</h3>
+									<ol>
+										<li>
+											<b>Username Verification:</b>
+											When the user logs in, the server searches the database to verify if the username exists.
+										</li>
+
+										<li>
+											<b>Password Verification:</b>
+											If the username exists, the provided password is compared to the hashed password stored in the database using Bcrypt.
+										</li>
+
+										<li>
+											<b>Token Generation:</b>
+											If the password matches, the server generates a token and provides it to the client.
+										</li>
+									</ol>
+
+									<h3>Token Handling</h3>
+									<ol>
+										<li>
+											<b>Token Storage:</b>
+											The client side stores the token in local storage.
+										</li>
+
+										<li>
+											<b>Authentication Requests:</b>
+											Whenever the user wants to make changes that require server interaction 
+											(e.g., updating the password, searching for videos, saving notes), the token is included in the request.
+										</li>
+
+										<li>
+											<b>Middleware Verification:</b>
+											The middleware verifies the token to ensure it is valid and that the user is authenticated before allowing any actions to proceed.
+										</li>
+									</ol>
+
+									<h3>Logout</h3>
+									<ol>
+										<li>
+											<b>Token Deletion:</b>
+											When the user logs out, their token is deleted from local storage.
+										</li>
+
+										<li>
+											<b>State Data Clearance:</b>
+											All other state data, such as searched videos, is also cleared to ensure privacy and security.
+										</li>
+									</ol>
+
+									<br>
+									<h3>Additional Information</h3>
+									<b>Security Measures:</b>
+									<ol>
+										<li>
+											<b>Bcrypt:</b>
+											Used for hashing passwords to enhance security and protect user data.
+										</li>
+
+										<li>
+											<b>Token-Based Authentication: </b>
+											Ensures that only authenticated users can perform certain actions, protecting the application from unauthorized access.
+										</li>
+									</ol>
+
+									<br>
+									<p>This flow ensures a secure and efficient authentication process, providing a seamless user experience while maintaining high security standards.</p>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Application Architecture Overview</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a class="image"><img src="images/appArch.png" alt="" /></a>
+											<p>VideoNoting Architecture</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="videoNotingArchitecture.html" class="button">More</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<header class="major">
+										<h2>Routes</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a class="image"><img src="images/routes.png" alt="" /></a>
+											<p>VideoNoting Routes</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="Routes.html" class="button">More</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<header class="major">
+										<h2>State Management</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a class="image"><img src="images/stateManagement.png" alt="" /></a>
+											<p>videoNoting State Management</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="videoNotingStateManagement.html" class="button">More</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<header class="major">
+										<h2>API Integration</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a class="image"><img src="images/APIIntegration.png" alt="" /></a>
+											<p>videoNoting API Integration</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="videoNotingAPIIntegration.html" class="button">More</a></li>
+									</ul>
+								</section>
+
+
+							<!-- Footer -->
+								<footer id="footer">
+                                    <p>VideoNoting</p>
+                                </footer>
+
+						</div>
+					</div>
+
+				</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
